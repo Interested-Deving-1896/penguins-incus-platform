@@ -53,25 +53,21 @@ cd penguins-incus-platform
 ## CI
 
 <!-- AI:start:ci -->
-The repository uses GitHub Actions for continuous integration and automation. Below is a summary of the workflows and their purposes:
-
-- **add-mirror-repo.yml**: Adds new repositories to the mirror configuration. Requires `GITHUB_TOKEN`.
-- **check-gitlab-sync.yml**: Verifies synchronization status between GitHub and GitLab repositories.
-- **cleanup-branches.yml**: Deletes stale branches across repositories. Requires `GITHUB_TOKEN`.
-- **cleanup-pollution.yml**: Removes unnecessary files or configurations from repositories.
-- **generate-dep-graph.yml**: Creates a dependency graph for project components.
-- **mirror-artifacts.yml**: Syncs build artifacts to external storage. Requires `ARTIFACT_STORAGE_KEY`.
-- **mirror-orgs-full.yml**: Performs a full mirror of all repositories in an organization. Requires `GITHUB_TOKEN` and `ORG_MIRROR_KEY`.
-- **mirror-orgs-watchdog.yml**: Monitors and ensures the health of organization mirrors.
-- **notify-poller.yml**: Sends notifications for polling-based updates. Requires `NOTIFICATION_WEBHOOK`.
+- **add-mirror-repo.yml**: Adds a new repository to the mirror list. Requires `GITHUB_TOKEN` and `MIRROR_API_KEY`.
+- **check-gitlab-sync.yml**: Verifies synchronization status between GitHub and GitLab. Requires `GITLAB_TOKEN`.
+- **cleanup-pollution.yml**: Removes unused branches and artifacts. Requires `GITHUB_TOKEN`.
+- **clone-org.yml**: Clones all repositories from a GitHub organization. Requires `GITHUB_TOKEN`.
+- **create-readmes.yml**: Generates README files for repositories. No secrets required.
+- **mirror-artifacts.yml**: Syncs build artifacts to external storage. Requires `STORAGE_API_KEY`.
+- **mirror-orgs-full.yml**: Mirrors all repositories from specified organizations. Requires `GITHUB_TOKEN` and `MIRROR_API_KEY`.
+- **mirror-orgs-watchdog.yml**: Monitors and reports on the health of organization mirrors. Requires `GITHUB_TOKEN`.
 - **pr-automation.yml**: Automates pull request labeling and merging. Requires `GITHUB_TOKEN`.
-- **rate-limit-status.yml**: Monitors and logs GitHub API rate limits.
-- **sync-to-gitlab.yml**: Syncs repositories from GitHub to GitLab. Requires `GITLAB_TOKEN`.
-- **token-health.yml**: Validates the health and expiration of API tokens.
-- **update-infra-deps.yml**: Updates infrastructure dependencies across repositories.
-- **validate-config.yml**: Checks configuration files for syntax and policy compliance.
-
-Secrets required for workflows include `GITHUB_TOKEN`, `GITLAB_TOKEN`, `ARTIFACT_STORAGE_KEY`, `ORG_MIRROR_KEY`, and `NOTIFICATION_WEBHOOK`.
+- **rate-limit-status.yml**: Checks and reports API rate limits. Requires `GITHUB_TOKEN`.
+- **sync-forks.yml**: Updates forks to match upstream repositories. Requires `GITHUB_TOKEN`.
+- **sync-to-gitlab.yml**: Mirrors repositories from GitHub to GitLab. Requires `GITLAB_TOKEN`.
+- **token-health.yml**: Validates the health of API tokens. Requires `GITHUB_TOKEN` and `GITLAB_TOKEN`.
+- **update-readmes.yml**: Updates README files with the latest information. No secrets required.
+- **upstream-prs.yml**: Tracks and syncs upstream pull requests. Requires `GITHUB_TOKEN`.
 <!-- AI:end:ci -->
 
 ## Mirror chain
@@ -91,9 +87,9 @@ Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-
 ## Contributors
 
 <!-- AI:start:contributors -->
-[@Interested-Deving-1896](https://github.com/Interested-Deving-1896): 182 commits
+[@Interested-Deving-1896](https://github.com/Interested-Deving-1896): 209 commits
 
-*Note: This repository is a mirror. Please refer to the upstream source for additional contributions and history.*
+*Note: This repository is a mirror. Please refer to the upstream source for additional contributions and context.*
 <!-- AI:end:contributors -->
 
 ## Origins
