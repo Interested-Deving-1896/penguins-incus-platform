@@ -4,7 +4,7 @@
 [![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/penguins-incus-platform)
 
 <!-- AI:start:what-it-does -->
-This project provides unified management for Incus containers and virtual machines within the Penguins ecosystem. It includes a Qt6/QML desktop UI, web UI, and CLI, ensuring feature parity across all interfaces. It is used by developers and system administrators to streamline container and VM operations in environments requiring consistent tooling and workflows.
+This project provides a unified platform for managing Incus containers and virtual machines within the Penguins ecosystem. It offers a consistent user experience across a Qt6/QML desktop application, a web interface, and a command-line interface, ensuring full feature parity. It is designed for developers and system administrators who require streamlined container and VM management with integrated tooling and workflows.
 <!-- AI:end:what-it-does -->
 
 ## Architecture
@@ -107,5 +107,5 @@ _No additional resource files found._
 ## License
 
 <!-- AI:start:license -->
-[GPL-3.0](https://github.com/Interested-Deving-1896/penguins-incus-platform/blob/main/LICENSE) © 2026 [Interested-Deving-1896](https://github.com/Interested-Deving-1896)
+<!-- License not detected — add a LICENSE file to this repo. -->
 <!-- AI:end:license -->
