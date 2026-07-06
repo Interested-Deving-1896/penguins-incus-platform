@@ -10,27 +10,25 @@ This project provides a unified platform for managing Incus containers and virtu
 ## Architecture
 
 <!-- AI:start:architecture -->
-The Penguins Incus Platform consists of three primary components: a Qt6/QML-based desktop UI, a web UI, and a CLI. These components provide unified management for Incus containers and VMs, ensuring feature parity across interfaces. The platform interacts with Incus APIs to manage container and VM lifecycles, networking, and storage. It also integrates with Penguins ecosystem tools for seamless operation.
+The Penguins Incus Platform consists of three primary components: a Qt6/QML-based desktop UI, a web UI, and a CLI. These components provide unified management for Incus containers and VMs within the Penguins ecosystem, ensuring feature parity across interfaces. The platform interacts with Incus APIs for container and VM operations and integrates with additional tools for image building, artifact mirroring, and repository synchronization.
 
 The repository is organized as follows:
 
 ```plaintext
-.
-├── .devcontainer/          # Development container configuration
-├── .github/                # GitHub workflows and CI/CD pipelines
-├── config/                 # Configuration files for the platform
-├── distrobuilder/          # Tools for building container and VM images
-├── integration/            # Integration tests and related scripts
-├── oci-builder/            # OCI-compliant image builder
-├── penguins-incus-platform/ # Core platform codebase
-├── scripts/                # Utility and helper scripts
-├── unified-image-server/   # Server for managing unified images
-├── ARCHITECTURE.md         # Detailed architecture documentation
-├── LICENSE                 # Licensing information
-├── README.md               # Project overview and usage instructions
+penguins-incus-platform/
+├── .devcontainer/         # Development container configuration
+├── .github/               # GitHub workflows and CI/CD configurations
+├── distrobuilder/         # Tools for building Linux distributions
+├── integration/           # Integration tests and related scripts
+├── oci-builder/           # OCI-compliant image builder
+├── scripts/               # Utility scripts for automation and maintenance
+├── unified-image-server/  # Server for managing and distributing images
+├── ARCHITECTURE.md        # Detailed architecture documentation
+├── LICENSE                # License information
+├── README.md              # Project overview and usage instructions
 ```
 
-The `.github` directory contains workflows for repository automation, including synchronization, artifact mirroring, and CI tasks. Each workflow is defined in YAML files, such as `mirror-orgs-full.yml` and `sync-to-gitlab.yml`.
+The `.github` directory contains workflows for repository management, synchronization, and automation tasks. The `scripts` directory includes helper scripts for tasks like token rotation, repository mirroring, and upstream synchronization. Each component is modular to facilitate independent development and deployment.
 <!-- AI:end:architecture -->
 
 ## Install
@@ -53,20 +51,19 @@ cd penguins-incus-platform
 ## CI
 
 <!-- AI:start:ci -->
-- **add-mirror-repo.yml**: Adds a new repository to the mirror list. Requires `GITHUB_TOKEN` and `MIRROR_API_KEY`.
-- **check-gitlab-sync.yml**: Verifies synchronization status between GitHub and GitLab. Requires `GITLAB_TOKEN`.
-- **cleanup-pollution.yml**: Removes unused branches and artifacts. Requires `GITHUB_TOKEN`.
-- **clone-org.yml**: Clones all repositories from a GitHub organization. Requires `GITHUB_TOKEN`.
-- **create-readmes.yml**: Generates README files for repositories. No secrets required.
-- **mirror-artifacts.yml**: Syncs build artifacts to external storage. Requires `STORAGE_API_KEY`.
-- **mirror-orgs-full.yml**: Mirrors all repositories from specified organizations. Requires `GITHUB_TOKEN` and `MIRROR_API_KEY`.
-- **mirror-orgs-watchdog.yml**: Monitors and reports on the health of organization mirrors. Requires `GITHUB_TOKEN`.
+- **add-mirror-repo.yml**: Adds a new repository to the mirror list. Requires `GITHUB_TOKEN` and `MIRROR_API_KEY` secrets.
+- **check-gitlab-sync.yml**: Verifies synchronization status between GitHub and GitLab repositories. Requires `GITLAB_TOKEN`.
+- **cleanup-pollution.yml**: Removes stale branches and tags. Requires `GITHUB_TOKEN`.
+- **mirror-artifacts.yml**: Mirrors build artifacts to external storage. Requires `STORAGE_API_KEY`.
+- **mirror-orgs-full.yml**: Performs a full mirror of all repositories in an organization. Requires `GITHUB_TOKEN` and `MIRROR_API_KEY`.
+- **mirror-orgs-watchdog.yml**: Monitors and reports on the status of organization mirrors. Requires `GITHUB_TOKEN`.
 - **pr-automation.yml**: Automates pull request labeling and merging. Requires `GITHUB_TOKEN`.
-- **rate-limit-status.yml**: Checks and reports API rate limits. Requires `GITHUB_TOKEN`.
-- **sync-forks.yml**: Updates forks to match upstream repositories. Requires `GITHUB_TOKEN`.
-- **sync-to-gitlab.yml**: Mirrors repositories from GitHub to GitLab. Requires `GITLAB_TOKEN`.
-- **token-health.yml**: Validates the health of API tokens. Requires `GITHUB_TOKEN` and `GITLAB_TOKEN`.
-- **update-readmes.yml**: Updates README files with the latest information. No secrets required.
+- **rate-limit-status.yml**: Checks and reports GitHub API rate limits. Requires `GITHUB_TOKEN`.
+- **rotate-token.yml**: Rotates API tokens for GitHub and GitLab. Requires `GITHUB_TOKEN` and `GITLAB_TOKEN`.
+- **sync-forks.yml**: Synchronizes forks with their upstream repositories. Requires `GITHUB_TOKEN`.
+- **sync-to-gitlab.yml**: Mirrors repositories from GitHub to GitLab. Requires `GITHUB_TOKEN` and `GITLAB_TOKEN`.
+- **token-health.yml**: Validates the health and permissions of API tokens. Requires `GITHUB_TOKEN` and `GITLAB_TOKEN`.
+- **update-readmes.yml**: Updates README files across repositories. Requires `GITHUB_TOKEN`.
 - **upstream-prs.yml**: Tracks and syncs upstream pull requests. Requires `GITHUB_TOKEN`.
 <!-- AI:end:ci -->
 
