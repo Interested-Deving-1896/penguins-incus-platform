@@ -51,20 +51,21 @@ cd penguins-incus-platform
 ## CI
 
 <!-- AI:start:ci -->
-- **add-mirror-repo.yml**: Adds a new repository to the mirror list. Requires `GITHUB_TOKEN` and `MIRROR_API_KEY` secrets.
-- **check-gitlab-sync.yml**: Verifies synchronization status between GitHub and GitLab repositories. Requires `GITLAB_TOKEN`.
-- **cleanup-pollution.yml**: Removes stale branches and tags. Requires `GITHUB_TOKEN`.
-- **mirror-artifacts.yml**: Mirrors build artifacts to external storage. Requires `STORAGE_API_KEY`.
-- **mirror-orgs-full.yml**: Performs a full mirror of all repositories in an organization. Requires `GITHUB_TOKEN` and `MIRROR_API_KEY`.
-- **mirror-orgs-watchdog.yml**: Monitors and reports on the status of organization mirrors. Requires `GITHUB_TOKEN`.
-- **pr-automation.yml**: Automates pull request labeling and merging. Requires `GITHUB_TOKEN`.
-- **rate-limit-status.yml**: Checks and reports GitHub API rate limits. Requires `GITHUB_TOKEN`.
-- **rotate-token.yml**: Rotates API tokens for GitHub and GitLab. Requires `GITHUB_TOKEN` and `GITLAB_TOKEN`.
-- **sync-forks.yml**: Synchronizes forks with their upstream repositories. Requires `GITHUB_TOKEN`.
-- **sync-to-gitlab.yml**: Mirrors repositories from GitHub to GitLab. Requires `GITHUB_TOKEN` and `GITLAB_TOKEN`.
-- **token-health.yml**: Validates the health and permissions of API tokens. Requires `GITHUB_TOKEN` and `GITLAB_TOKEN`.
-- **update-readmes.yml**: Updates README files across repositories. Requires `GITHUB_TOKEN`.
-- **upstream-prs.yml**: Tracks and syncs upstream pull requests. Requires `GITHUB_TOKEN`.
+- **add-mirror-repo.yml**: Adds a new repository to the mirror list. Requires `MIRROR_API_TOKEN`.
+- **check-gitlab-sync.yml**: Verifies synchronization status between GitHub and GitLab. Requires `GITLAB_TOKEN`.
+- **cleanup-pollution.yml**: Cleans up temporary or polluted branches. No secrets required.
+- **clone-org.yml**: Clones all repositories from a specified organization. Requires `GITHUB_TOKEN`.
+- **create-readmes.yml**: Generates README files for repositories. No secrets required.
+- **fork-neon-repos.yml**: Forks Neon-related repositories. Requires `GITHUB_TOKEN`.
+- **gl-storage-scan.yml**: Scans GitLab storage usage. Requires `GITLAB_TOKEN`.
+- **import-repo.yml**: Imports repositories into the project. Requires `IMPORT_API_TOKEN`.
+- **inject-badges.yml**: Adds badges to README files. No secrets required.
+- **mirror-artifacts.yml**: Mirrors build artifacts between platforms. Requires `ARTIFACT_API_TOKEN`.
+- **mirror-orgs-full.yml**: Performs a full mirror of all repositories in an organization. Requires `MIRROR_API_TOKEN`.
+- **pr-automation.yml**: Automates pull request workflows. Requires `GITHUB_TOKEN`.
+- **rate-limit-status.yml**: Monitors API rate limits. Requires `GITHUB_TOKEN`.
+- **sync-forks.yml**: Synchronizes forks with upstream repositories. Requires `GITHUB_TOKEN`.
+- **update-readmes.yml**: Updates README files across repositories. No secrets required.
 <!-- AI:end:ci -->
 
 ## Mirror chain
