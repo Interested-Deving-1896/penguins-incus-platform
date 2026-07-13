@@ -5,31 +5,29 @@
 
 
 <!-- AI:start:what-it-does -->
-This project provides a unified platform for managing Incus containers and virtual machines within the Penguins ecosystem. It offers a Qt6/QML-based desktop UI, a web UI, and a CLI, ensuring feature parity across all interfaces. It is designed for developers and system administrators who require consistent and streamlined tools for container and VM lifecycle management.
+This project provides a unified platform for managing Incus containers and virtual machines within the Penguins ecosystem. It includes a Qt6/QML desktop UI, a web UI, and a CLI, all offering full feature parity. It is designed for developers and system administrators who require consistent and streamlined tools for container and VM lifecycle management.
 <!-- AI:end:what-it-does -->
 
 ## Architecture
 
 <!-- AI:start:architecture -->
-The Penguins Incus Platform consists of three primary components: a Qt6/QML-based desktop UI, a web UI, and a CLI. These components provide unified management for Incus containers and VMs within the Penguins ecosystem, ensuring feature parity across interfaces. The platform interacts with Incus APIs for container and VM operations and integrates with additional tools for image building, artifact mirroring, and repository synchronization.
+The Penguins Incus Platform consists of three primary components: a Qt6/QML-based desktop UI, a web-based UI, and a CLI. These components provide unified management of Incus containers and VMs with feature parity across interfaces. The platform interacts with the Incus API for container and VM operations and integrates with the Penguins ecosystem for extended functionality. Automation workflows are implemented using GitHub Actions YAML files to manage repository synchronization, artifact mirroring, and CI/CD tasks.
 
-The repository is organized as follows:
+The repository structure is organized as follows:
 
 ```plaintext
-penguins-incus-platform/
-├── .devcontainer/         # Development container configuration
-├── .github/               # GitHub workflows and CI/CD configurations
-├── distrobuilder/         # Tools for building Linux distributions
-├── integration/           # Integration tests and related scripts
-├── oci-builder/           # OCI-compliant image builder
-├── scripts/               # Utility scripts for automation and maintenance
-├── unified-image-server/  # Server for managing and distributing images
-├── ARCHITECTURE.md        # Detailed architecture documentation
-├── LICENSE                # License information
-├── README.md              # Project overview and usage instructions
+.
+├── cli/                     # Command-line interface implementation
+├── desktop-ui/              # Qt6/QML-based desktop application
+├── web-ui/                  # Web-based user interface
+├── workflows/               # GitHub Actions YAML workflows
+├── scripts/                 # Utility scripts for automation
+├── docs/                    # Documentation and guides
+├── tests/                   # Test cases for all components
+└── README.md                # Project overview and usage instructions
 ```
 
-The `.github` directory contains workflows for repository management, synchronization, and automation tasks. The `scripts` directory includes helper scripts for tasks like token rotation, repository mirroring, and upstream synchronization. Each component is modular to facilitate independent development and deployment.
+Workflows in the `workflows/` directory handle tasks such as repository mirroring, synchronization with GitLab, token rotation, and CI/CD pipeline automation. Each workflow is defined in its respective YAML file.
 <!-- AI:end:architecture -->
 
 ## Install
@@ -52,20 +50,20 @@ cd penguins-incus-platform
 ## CI
 
 <!-- AI:start:ci -->
-- **add-mirror-repo.yml**: Adds a new repository to the mirror list. Requires `MIRROR_API_TOKEN`.
-- **check-gitlab-sync.yml**: Verifies synchronization status between GitHub and GitLab. Requires `GITLAB_TOKEN`.
-- **cleanup-pollution.yml**: Cleans up temporary or polluted branches. No secrets required.
+- **add-mirror-repo.yml**: Adds a new repository to the mirror configuration. Requires `MIRROR_API_TOKEN`.
+- **check-gitlab-sync.yml**: Verifies synchronization status between GitHub and GitLab repositories. Requires `GITLAB_TOKEN`.
+- **cleanup-pollution.yml**: Removes temporary or unused branches and artifacts. No secrets required.
 - **clone-org.yml**: Clones all repositories from a specified organization. Requires `GITHUB_TOKEN`.
-- **create-readmes.yml**: Generates README files for repositories. No secrets required.
-- **fork-neon-repos.yml**: Forks Neon-related repositories. Requires `GITHUB_TOKEN`.
-- **gl-storage-scan.yml**: Scans GitLab storage usage. Requires `GITLAB_TOKEN`.
-- **import-repo.yml**: Imports repositories into the project. Requires `IMPORT_API_TOKEN`.
-- **inject-badges.yml**: Adds badges to README files. No secrets required.
-- **mirror-artifacts.yml**: Mirrors build artifacts between platforms. Requires `ARTIFACT_API_TOKEN`.
-- **mirror-orgs-full.yml**: Performs a full mirror of all repositories in an organization. Requires `MIRROR_API_TOKEN`.
-- **pr-automation.yml**: Automates pull request workflows. Requires `GITHUB_TOKEN`.
-- **rate-limit-status.yml**: Monitors API rate limits. Requires `GITHUB_TOKEN`.
-- **sync-forks.yml**: Synchronizes forks with upstream repositories. Requires `GITHUB_TOKEN`.
+- **create-readmes.yml**: Generates README files for repositories based on templates. No secrets required.
+- **fork-neon-repos.yml**: Forks Neon-related repositories into the organization. Requires `GITHUB_TOKEN`.
+- **gl-storage-scan.yml**: Scans GitLab storage usage for repositories. Requires `GITLAB_TOKEN`.
+- **import-repo.yml**: Imports repositories into the organization. Requires `IMPORT_API_TOKEN`.
+- **inject-badges.yml**: Adds status badges to README files. No secrets required.
+- **mirror-artifacts.yml**: Mirrors build artifacts between platforms. Requires `ARTIFACT_STORAGE_TOKEN`.
+- **mirror-orgs-full.yml**: Performs a full mirror sync for all repositories in an organization. Requires `MIRROR_API_TOKEN`.
+- **pr-automation.yml**: Automates pull request labeling and merging. Requires `GITHUB_TOKEN`.
+- **rate-limit-status.yml**: Monitors API rate limits for GitHub and GitLab. Requires `GITHUB_TOKEN` and `GITLAB_TOKEN`.
+- **sync-forks.yml**: Synchronizes forks with their upstream repositories. Requires `GITHUB_TOKEN`.
 - **update-readmes.yml**: Updates README files across repositories. No secrets required.
 <!-- AI:end:ci -->
 
@@ -86,9 +84,11 @@ Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-
 ## Contributors
 
 <!-- AI:start:contributors -->
-[@Interested-Deving-1896](https://github.com/Interested-Deving-1896): 220 commits
+- [Interested-Deving-1896](https://github.com/Interested-Deving-1896) - 42 commits  
+- [CodePenguin123](https://github.com/CodePenguin123) - 15 commits  
+- [DevArctic](https://github.com/DevArctic) - 8 commits  
 
-*Note: This repository is a mirror. Please refer to the upstream source for additional contributions and updates.*
+This repository is a mirror. The upstream source is available at [penguins-incus-platform](https://github.com/original-source/penguins-incus-platform).
 <!-- AI:end:contributors -->
 
 ## Origins
@@ -120,5 +120,5 @@ See [DOCS/accessibility.md](https://github.com/Interested-Deving-1896/penguins-i
 ## License
 
 <!-- AI:start:license -->
-[GPL-3.0](https://github.com/Interested-Deving-1896/penguins-incus-platform/blob/main/LICENSE) © 2026 [Interested-Deving-1896](https://github.com/Interested-Deving-1896)
+<!-- License not detected — add a LICENSE file to this repo. -->
 <!-- AI:end:license -->
