@@ -84,9 +84,9 @@ Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-
 ## Contributors
 
 <!-- AI:start:contributors -->
-- [Interested-Deving-1896](https://github.com/Interested-Deving-1896) - 42 commits  
-- [CodePenguin123](https://github.com/CodePenguin123) - 15 commits  
-- [DevArctic](https://github.com/DevArctic) - 8 commits  
+- [Interested-Deving-1896](https://github.com/Interested-Deving-1896) - 42 commits
+- [CodePenguin123](https://github.com/CodePenguin123) - 15 commits
+- [DevArctic](https://github.com/DevArctic) - 8 commits
 
 This repository is a mirror. The upstream source is available at [penguins-incus-platform](https://github.com/original-source/penguins-incus-platform).
 <!-- AI:end:contributors -->
@@ -94,7 +94,7 @@ This repository is a mirror. The upstream source is available at [penguins-incus
 ## Origins
 
 <!-- AI:start:origins -->
-_Original project — no upstream fork._
+_Original project — no upstream influences recorded._
 <!-- AI:end:origins -->
 
 ## Resources
