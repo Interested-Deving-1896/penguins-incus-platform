@@ -94,7 +94,7 @@ This repository is a mirror. The upstream source is available at [penguins-incus
 ## Origins
 
 <!-- AI:start:origins -->
-_Original project — no upstream influences recorded._
+_Original project — no upstream fork._
 <!-- AI:end:origins -->
 
 ## Resources
